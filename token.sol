@@ -1,12 +1,12 @@
 /// @title GlobalCoin Contract
-pragma solidity ^0.4.23;
+pragma solidity ^0.4.24;
 
 
 /**
  * Math operations with safety checks
  */
 library SafeMath {
-    
+
     function mul(uint256 a, uint256 b) internal pure returns (uint256 c) {
         if (a == 0) {
             return 0;
@@ -15,16 +15,16 @@ library SafeMath {
         assert(c / a == b);
         return c;
     }
-    
+
     function div(uint256 a, uint256 b) internal pure returns (uint256) {
         return a / b;
     }
-    
+
     function sub(uint256 a, uint256 b) internal pure returns (uint256) {
         assert(b <= a);
         return a - b;
     }
-    
+
     function add(uint256 a, uint256 b) internal pure returns (uint256 c) {
         c = a + b;
         assert(c >= a);
@@ -33,7 +33,7 @@ library SafeMath {
 }
 
 contract GlobalCoin {
-    
+
     using SafeMath for uint256;
     string public name = "GlobalCoin";                  // token name
     string public symbol = "GBC";                    // token symbol
@@ -43,7 +43,7 @@ contract GlobalCoin {
     mapping (address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
     uint256 public totalSupply = 1000000 * (uint256(10) ** decimals);
-    
+
     modifier onlyOwner() {
         require(msg.sender == owner);
         _;
