@@ -33,7 +33,7 @@ contract keyValueStorage {
     }
     
     // Set Methods
-    function setisMember(bytes32 __key, bool _pass) internal {
+    function setisMember(bytes32 _key, bool _pass) internal {
         isMember[msg.sender][_key] = _pass;
     }
     
@@ -58,7 +58,7 @@ contract keyValueStorage {
         delete isMember[msg.sender][_key];
         delete lockTime[msg.sender][_key];
         delete refreshTime[msg.sender][_key];
-        delete CADSeedBalance[msg.sender][_key];
-        delete CADPointsBalance[msg.sender][_key];
+        delete SeedBalance[msg.sender][_key];
+        delete PointsBalance[msg.sender][_key];
     }
 }
